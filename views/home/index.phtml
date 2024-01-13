@@ -1,0 +1,72 @@
+<?php
+include_once __DIR__ . '/../layouts/head.phtml';
+include_once __DIR__ . '/../layouts/sidebar.phtml';
+?>
+<div class="main">
+    <div class="container">
+        <div class="position-relative d-lg-flex d-block mt-4 w-100">
+            <div class="col-lg-8 me-lg-4">
+                <div id="carouselExample" class="carousel slide">
+                    <div class="carousel-inner rounded-3">
+                        <div class="carousel-item active">
+                            <img src="https://cdn.divineshop.vn/image/catalog/Banner/Atomic%20Heart1-62377.jpg?hash=1676992156" class="d-block img_carousel" />
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://cdn.divineshop.vn/image/catalog/Banner/Atomic%20Heart1-62377.jpg?hash=1676992156" class="d-block img_carousel" />
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://cdn.divineshop.vn/image/catalog/Banner/Atomic%20Heart1-62377.jpg?hash=1676992156" class="d-block img_carousel" />
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+            <div class="col-lg-4 mt-lg-0 mt-3">
+                <div class="d-flex flex-row flex-lg-column">
+                    <a href="#" class="d-flex">
+                        <img class="w-100  rounded-3" src="https://cdn.divineshop.vn/image/catalog/Banner/Atomic%20Heart1-62377.jpg?hash=1676992156" />
+                    </a>
+                    <a href="#" class="d-flex ms-3 ms-lg-0 mt-lg-3">
+                        <img class="w-100  rounded-3" src="https://cdn.divineshop.vn/image/catalog/Banner/Atomic%20Heart1-62377.jpg?hash=1676992156" />
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4 row-cols-2 row-cols-lg-4 g-2 g-lg-4">
+            <?php foreach ($film as $col) : ?>
+                <div class="col">
+                    <?php $part = DB::connect()->find('part', ['IDFilm' => $col->IDFilm], ['IDPart ASC'])->get(); ?>
+                    <?php $Ckpart = DB::connect()->num_rows('part', ['IDFilm' => $col->IDFilm])->get(); ?>
+                    <?php $episode = DB::connect()->find('video', ['IDFilm' => $col->IDFilm, 'IDPart' => $part->IDPart], ['IDVideo ASC'])->get(); ?>
+                    <?php $Ckepisode = DB::connect()->num_rows('video', ['IDFilm' => $col->IDFilm, 'IDPart' => $part->IDPart])->get(); ?>
+                    <a href="/<?= $col->slug ?>/<?= isset($part->IDPart) ? $part->IDPart : '0'; ?>/<?= ($Ckepisode >= 1) ? $episode->episode : 'null'; ?>.html" class="d-flex text-decoration-none">
+                        <div class="d-flex flex-column">
+                            <img class="w-100 rounded-3" src="<?= $col->thumbnail; ?>" />
+                            <div class="d-flex flex-column mt-1">
+                                <div class="fs-6 text-main fw-500"><?= $col->name ?></div>
+                                <p class="fs-14 text-white mb-0">
+                                    <span class="badge text-bg-light ms-1"><?= $Ckpart; ?> phần</span>
+                                    <span class="badge text-bg-danger ms-1"><?= $Ckepisode; ?> tập</span>
+                                    <span class="badge text-bg-main ms-1"><?= $col->category; ?></span>
+                                </p>
+                                <p class="fs-14 text-white mt-1"><?= $col->content ?>
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</div>
+<?php
+include_once __DIR__ . '/../layouts/script.phtml';
+include_once __DIR__ . '/../layouts/end.phtml';
+?>

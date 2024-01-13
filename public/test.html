@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script async custom-element="amp-jwplayer" src="https://cdn.ampproject.org/v0/amp-jwplayer-0.1.js"></script>
+
+</head>
+
+<body>
+<div id="player"></div>
+
+<div class="player-options">
+    <div class="options-row">
+        <label for="startOn">startOn</label>
+        <select name="startOn" id="startOn">
+            <option value="1" selected>1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+    </div>
+    <div class="options-row">
+        <form name="frequency">
+            <!-- Firefox requires <option> elements to be within a <form> in order to use the 'selected' attribute. -->
+            <label for="frequency">frequency</label>
+            <select name="frequency" id="frequency">
+                <option value="0">0</option>
+                <option value="1" selected>1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+        </form>
+    </div>
+    <button id="setupPlayerButton" class="ds-button--primary">Re-setup The Player</button>
+</div>
+
+<div id="explanation" class="explanation">These rules will result in the player playing ads every <span
+        id="frequencyText">single</span> playlist item, starting with the <span id="startOnText">first</span>.</div>
+
+
+<div class="ad-rules-link"><a
+        href="https://developer.jwplayer.com/jw-player/docs/developer-guide/customization/configuration-reference/#advertising-rules">Click
+        here</a> to see the ad rules configuration options available.</div>
+<script>
+    </script>
+</body>
+
+</html>

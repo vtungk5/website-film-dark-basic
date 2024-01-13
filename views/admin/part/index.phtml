@@ -1,0 +1,164 @@
+<?php
+include_once __DIR__ . '/../../layouts/head2.phtml';
+?>
+<link rel="stylesheet" href="/admin/extensions/sweetalert2/sweetalert2.min.css" />
+<link rel="stylesheet" href="/admin/extensions/filepond/filepond.css" />
+<link rel="stylesheet" href="/admin/extensions/filepond-plugin-image-preview/filepond-plugin-image-preview.css" />
+<link rel="stylesheet" href="/admin/extensions/toastify-js/src/toastify.css" />
+<link rel="stylesheet" href="/admin/extensions/choices.js/public/assets/styles/choices.css" />
+<div id="app">
+    <?php include_once __DIR__ . '/../../layouts/sidebar2.phtml'; ?>
+    <div id="main">
+        <header class="mb-3">
+            <a href="#" class="burger-btn d-block d-xl-none">
+                <i class="bi bi-justify fs-3"></i>
+            </a>
+        </header>
+
+        <div class="page-heading">
+            <div class="page-title">
+                <div class="row">
+                    <div class="col-12 col-md-6 order-md-1 order-last">
+                        <h3>Danh sách phần</h3>
+                        <p class="text-subtitle text-muted">
+                            Nếu còn phần phim nào chưa có hãy thêm <a href="#" data-bs-toggle="modal" data-bs-target="#addFilm" onclick=" return false;">tại đây</a>
+                        </p>
+                    </div>
+                    <div class="col-12 col-md-6 order-md-2 order-first">
+                        <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="/admin/">Bảng điều khiển</a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    Danh sách phần
+                                </li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Minimal jQuery Datatable start -->
+            <section class="section">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title">Danh sách phần</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive datatable-minimal">
+                            <table class="table" id="table2">
+                                <thead>
+                                    <tr>
+                                        <th>Tên phim</th>
+                                        <th>Tên phần</th>
+                                        <th>Thời gian</th>
+                                        <th>Hoạt động</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($list as $part) : ?>
+                                        <tr>
+                                            <td><?= DB::connect()->find('film', ['IDFilm' => $part->IDFilm])->get()->name; ?></td>
+                                            <td><?= $part->name; ?></td>
+                                            <td><?= timeago($part->date); ?></td>
+                                            <td class="d-flex align-items-center">
+                                                <a href="/admin/film/<?= $part->IDFilm; ?>/part/<?= $part->IDPart; ?>/edit" class=" btn icon btn-primary">
+                                                    <i class="bi bi-pencil"></i>
+                                                    <span class="ms-1">Edit</span>
+                                                </a>
+                                                <form method="POST">
+                                                    <input type="hidden" name="delete" value="<?= $part->IDPart; ?>" />
+                                                    <button type="submit" class="ms-2 btn icon btn-danger">
+                                                        <i class="bi bi-x"></i>
+                                                        <span class="ms-1">Delete</span>
+                                                    </button>
+                                                </form>
+                                                <a href="/admin/film/<?= $part->IDFilm; ?>/part/<?= $part->IDPart; ?>/video" class="ms-2 btn icon icon-left btn-dark"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file">
+                                                        <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                                                        <polyline points="13 2 13 9 20 9"></polyline>
+                                                    </svg> Quản lý phim
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </div>
+</div>
+
+
+<!--Basic Modal -->
+<div class="modal fade text-left" id="addFilm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+        <form method="POST" class="modal-content" >
+            <div class="modal-header">
+                <h5 class="modal-title" id="myModalLabel1">
+                    Thêm Phần
+                </h5>
+                <button type="button" class="close rounded-pill" data-bs-dismiss="modal" aria-label="Close">
+                    <i data-feather="x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="basicInput">Tên phần</label>
+                    <input type="text" name="name" class="form-control" id="basicInput" placeholder="" />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn d-flex align-items-center" data-bs-dismiss="modal">
+                    <span class="ms-2">Đóng</span>
+                </button>
+                <button type="submit" class="btn btn-primary ms-1 d-flex align-items-center" data-bs-dismiss="modal">
+                    <span class="ms-2">Thêm</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<?php
+include_once __DIR__ . '/../../layouts/script2.phtml';
+?>
+
+<script src="/admin/extensions/sweetalert2/sweetalert2.min.js"></script>
+<script src="/admin/extensions/filepond-plugin-file-validate-size/filepond-plugin-file-validate-size.min.js"></script>
+<script src="/admin/extensions/filepond-plugin-file-validate-type/filepond-plugin-file-validate-type.min.js"></script>
+<script src="/admin/extensions/filepond-plugin-image-crop/filepond-plugin-image-crop.min.js"></script>
+<script src="/admin/extensions/filepond-plugin-image-exif-orientation/filepond-plugin-image-exif-orientation.min.js"></script>
+<script src="/admin/extensions/filepond-plugin-image-filter/filepond-plugin-image-filter.min.js"></script>
+<script src="/admin/extensions/filepond-plugin-image-preview/filepond-plugin-image-preview.min.js"></script>
+<script src="/admin/extensions/filepond-plugin-image-resize/filepond-plugin-image-resize.min.js"></script>
+<script src="/admin/extensions/filepond/filepond.js"></script>
+<script src="/admin/extensions/toastify-js/src/toastify.js"></script>
+<script src="/admin/static/js/pages/filepond.js"></script>
+<script src="/admin/extensions/choices.js/public/assets/scripts/choices.js"></script>
+<script src="/admin/static/js/pages/form-element-select.js"></script>
+<script src="/admin/extensions/jquery/jquery.min.js"></script>
+<script src="/admin/extensions/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="/admin/extensions/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
+<script src="/admin/static/js/pages/datatables.js"></script>
+<?php if (isset($data->status)) : ?>
+    <script>
+        const Swal2 = Swal.mixin({
+            customClass: {
+                input: 'form-control'
+            }
+        })
+        Swal2.fire({
+            icon: "<?= $data->status; ?>",
+            text: '<?= $data->message; ?>'
+        });
+    </script>
+<?php endif; ?>
+<?php
+include_once __DIR__ . '/../../layouts/end.phtml';
+?>

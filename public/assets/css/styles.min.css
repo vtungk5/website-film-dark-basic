@@ -1,0 +1,484 @@
+             :root {
+                 --bg-main: #5e7bff !important;
+                 --bg-white: #F7F7F7;
+             }
+
+             body {
+                 background-color: #1e243d;
+             }
+
+             .banner_film {
+                 position: relative;
+                 min-height: 9rem;
+                 background-color: #000000bd;
+                 background-size: cover;
+                 background-blend-mode: color;
+             }
+
+             .text-gray {
+                 color: #7e7e7e !important;
+             }
+
+
+
+             .bg-gray {
+                 background-color: #dedede !important;
+             }
+
+             .w-fit-content {
+                 width: fit-content;
+             }
+
+             #player {
+                 background: black;
+                 border-radius: 12px;
+             }
+
+             #player .jw-button-color.jw-toggle:not(.jw-icon-cast),
+             #player .jw-button-color:hover:not(.jw-icon-cast),
+             #player .jw-button-color:focus:not(.jw-icon-cast),
+             #player .jw-button-color.jw-toggle.jw-off:hover:not(.jw-icon-cast) {
+                 color: rgb(255 255 255) !important;
+             }
+
+             .jwplayer.jw-display-icon-container * {
+                 color: rgb(255 255 255) !important;
+             }
+
+             .jw-icon.jw-icon-inline.jw-button-color.jw-reset.jw-logo-button {
+                 display: none;
+             }
+
+             .jw-icon *:hover {
+                 color: #fff !important;
+             }
+
+             .jw-progress {
+                 background-color: #5e7bff !important;
+             }
+
+             .jw-slider-horizontal.jw-chapter-slider-time .jw-slider-container .jw-timesegment-progress {
+                 background-color: #5e7bff !important;
+             }
+
+             .jw-settings-topbar {
+                 background-color: rgb(94 123 255);
+             }
+
+             .jw-icon-inline,
+             .jw-icon-tooltip {
+                 color: #fff !important;
+             }
+
+             .jw-reset.jw-rightclick-item.jw-featured {
+                 display: none;
+             }
+
+             .chap_item {
+                 position: absolute;
+                 left: 7px;
+             }
+
+             .jwplayer.jw-skin-animevsub.jw-state-idle .jw-display-controls .jw-display-icon-container {
+                 margin-bottom: -2.5rem;
+                 background-color: rgba(0, 0, 0, .4);
+                 border: solid .125rem var(--bg-white);
+                 height: 75px;
+                 width: 75px
+             }
+
+             .jwplayer.jw-skin-animevsub .jw-controlbar .jw-button-container .jw-button-color {
+                 color: var(--bg-white)
+             }
+
+             .jwplayer.jw-skin-animevsub.jw-state-paused .jw-controlbar .jw-button-container .jw-button-color {
+                 color: var(--bg-white)
+             }
+
+             .jwplayer.jw-skin-animevsub .jw-controlbar .jw-text {
+                 color: var(--bg-white)
+             }
+
+             .jw-svg-icon-playback-rate path {
+                 color: var(--bg-white)
+             }
+
+             .jw-button-color:not(.jw-icon-cast) .jw-button-color.jw-toggle.jw-off:not(.jw-icon-cast) {
+                 color: var(--bg-white)
+             }
+
+             .toasts_noti {
+                 position: fixed;
+                 top: 22px;
+                 right: 6%;
+                 font-size: 14px;
+                 border: none;
+                 z-index: 2000;
+             }
+
+             .box_item {
+                 height: 33px;
+                 margin: 6px 0;
+                 padding: 0;
+                 border-radius: 9px;
+                 width: 33px;
+                 background-color: #f1f1f1;
+             }
+
+             .toasts {
+                 display: none;
+                 width: 100%;
+                 height: 80px;
+                 padding: 20px;
+                 background-color: #ffffff;
+                 border-radius: 7px;
+                 grid-template-columns: 1.3fr 6fr 0.5fr;
+                 box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+             }
+
+             .toasts.show {
+                 display: grid;
+             }
+
+             .toasts.success {
+                 border-left: 8px solid #47D764;
+             }
+
+             .toasts.error {
+                 border-left: 8px solid #ff355b;
+             }
+
+             .toasts.info {
+                 border-left: 8px solid #2F86EB;
+             }
+
+             .toasts.warning {
+                 border-left: 8px solid #FFC021;
+             }
+
+             .toasts.error i {
+                 color: #ff355b;
+             }
+
+             .toasts.info i {
+                 color: #2F86EB;
+             }
+
+             .toasts.warning i {
+                 color: #FFC021;
+             }
+
+             .toasts:not(:last-child) {
+                 margin-bottom: 25px;
+             }
+
+             .toasts .container-1,
+             .container-2 {
+                 align-self: center;
+             }
+
+             .toasts .container-2 p {
+                 margin-bottom: 0;
+             }
+
+             .toasts .container-1 {
+                 display: flex;
+                 margin-right: 12px;
+             }
+
+             .toasts .container-1 i {
+                 font-size: 35px;
+             }
+
+             .toasts.success i {
+                 color: #47D764;
+             }
+
+             .toasts .container-2 p:first-child {
+                 color: #101020;
+                 font-weight: 600;
+                 font-size: 16px;
+             }
+
+             .toasts .container-2 p:last-child {
+                 font-size: 12px;
+                 font-weight: 400;
+                 color: #656565;
+             }
+
+             .toasts button {
+                 align-self: flex-start;
+                 background-color: transparent;
+                 font-size: 25px;
+                 color: #656565;
+                 line-height: 0;
+                 border: none;
+                 cursor: pointer;
+             }
+
+             .fw-400 {
+                 font-weight: 400;
+             }
+
+             .fw-500 {
+                 font-weight: 500;
+             }
+
+             .fs-7 {
+                 font-size: 7px;
+             }
+
+             .fs-8 {
+                 font-size: 8px;
+             }
+
+             .fs-9 {
+                 font-size: 9px;
+             }
+
+             .fs-10 {
+                 font-size: 10px;
+             }
+
+             .fs-11 {
+                 font-size: 11px;
+             }
+
+             .fs-12 {
+                 font-size: 12px;
+             }
+
+             .fs-13 {
+                 font-size: 13px;
+             }
+
+             .fs-14 {
+                 font-size: 14px;
+             }
+
+             .fs-15 {
+                 font-size: 15px;
+             }
+
+             .fs-16 {
+                 font-size: 16px;
+             }
+
+             .fs-17 {
+                 font-size: 17px;
+             }
+
+             .fs-18 {
+                 font-size: 18px;
+             }
+
+             .fs-19 {
+                 font-size: 19px;
+             }
+
+             .fs-20 {
+                 font-size: 20px;
+             }
+
+             .fs-21 {
+                 font-size: 21px;
+             }
+
+             .fs-22 {
+                 font-size: 22px;
+             }
+
+             .fs-23 {
+                 font-size: 23px;
+             }
+
+             .fs-24 {
+                 font-size: 24px;
+             }
+
+             .fs-25 {
+                 font-size: 25px;
+             }
+
+             .fs-26 {
+                 font-size: 26px;
+             }
+
+             .fs-27 {
+                 font-size: 27px;
+             }
+
+             .fs-28 {
+                 font-size: 28px;
+             }
+
+             .fs-29 {
+                 font-size: 29px;
+             }
+
+             .fs-30 {
+                 font-size: 30px;
+             }
+
+             :root {
+                 --bs-primary-rgb: 0, 5, 26;
+             }
+
+             .btn-violet-dark {
+                 --bs-btn-color: #fff;
+                 --bs-btn-bg: #343f70;
+                 --bs-btn-border-color: #343f70;
+                 --bs-btn-hover-color: #fff;
+                 --bs-btn-hover-bg: #343f70;
+                 --bs-btn-hover-border-color: #343f70;
+                 --bs-btn-focus-shadow-rgb: 211, 212, 213;
+                 --bs-btn-active-color: #fff;
+                 --bs-btn-active-bg: #343f70;
+                 --bs-btn-active-border-color: #343f70;
+                 --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+                 --bs-btn-disabled-color: #fff;
+                 --bs-btn-disabled-bg: #343f70;
+                 --bs-btn-disabled-border-color: #343f70;
+             }
+
+             .outline-0,
+             .outline-0:hover,
+             .outline-0:focus {
+                 outline: 0 !important;
+             }
+
+             .border-auto {
+                 border-color: transparent !important;
+             }
+
+             .box-shadow-none,
+             .box-shadow-none:hover,
+             .box-shadow-none:focus {
+                 box-shadow: none !important;
+             }
+
+             .bg-gray-dark {
+                 background-color: #1e243d !important;
+             }
+
+
+             .layouts-search input {
+                 width: 25rem;
+             }
+
+             .layouts-search input {
+                 border-bottom-right-radius: 0px;
+                 border-top-right-radius: 0px;
+             }
+
+             .layouts-search button {
+                 border-bottom-left-radius: 0px;
+                 border-top-left-radius: 0px;
+             }
+
+             .form-control.bg-gray-dark::placeholder {
+                 color: #324387;
+                 font-size: 14px;
+             }
+
+             .wh-2-3 {
+                 height: 2.3rem;
+                 width: 2.3rem;
+             }
+
+             .main {
+                 padding-top: 69px;
+                 padding-bottom: 7rem;
+             }
+
+             .img_carousel {
+                 width: 100%;
+             }
+
+             .carousel-control-next,
+             .carousel-control-prev {
+                 background-color: #000000de;
+             }
+
+             .bg-main {
+                 background-color: #5e7bff !important;
+             }
+
+             .text-main {
+                 color: #5e7bff !important;
+             }
+
+             .text-bg-main {
+                 color: #fff !important;
+                 background-color: #5e7bff !important;
+             }
+
+             .modal {
+                 --bs-modal-bg: #21242d;
+                 --bs-modal-color: white;
+                 --bs-modal-header-border-color: #ffffff00;
+             }
+
+             .btn-close {
+                 background-color: white;
+             }
+
+             .form-control.input_dark {
+                 background-color: #21242d !important;
+                 padding: 10px 0.75rem !important;
+                 color: white;
+                 border: 1px solid #434858;
+             }
+
+             .form-control.input_dark:focus {
+                 border: 1px solid #5e7bff;
+             }
+
+             .btn-primary {
+                 --bs-btn-color: #fff;
+                 --bs-btn-bg: #5e7bff;
+                 --bs-btn-border-color: #5e7bff;
+                 --bs-btn-hover-color: #fff;
+                 --bs-btn-hover-bg: #5e7bff;
+                 --bs-btn-hover-border-color: #5e7bff;
+                 --bs-btn-focus-shadow-rgb: 49, 132, 253;
+                 --bs-btn-active-color: #fff;
+                 --bs-btn-active-bg: #5e7bff;
+                 --bs-btn-active-border-color: #5e7bff;
+                 --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+                 --bs-btn-disabled-color: #fff;
+                 --bs-btn-disabled-bg: #5e7bff;
+                 --bs-btn-disabled-border-color: #5e7bff;
+             }
+
+             @media (max-width: 734px) {
+                 .layouts-search input {
+                     width: 100%;
+                 }
+
+                 .img_carousel {
+                     width: 106%;
+                 }
+             }
+
+             @media (min-width: 992px) {
+                 .layouts-search input {
+                     width: 25rem;
+                 }
+
+                 .fs-lg-badge {
+                     font-size: 0.75em !important;
+                 }
+
+                 .fs-lg-6 {
+                     font-size: 1rem !important;
+                 }
+
+                 .img_carousel {
+                     width: 104.7%;
+                 }
+
+                 .contents_film {
+                     width: 29rem;
+                 }
+             }

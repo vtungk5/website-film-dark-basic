@@ -1,0 +1,8 @@
+{
+    "require": {
+        "vlucas/phpdotenv": "^5.5",
+        "miladrahimi/phprouter": "5.*",
+        "guzzlehttp/guzzle": "^7.5",
+        "firebase/php-jwt": "^6.4"
+    }
+}
